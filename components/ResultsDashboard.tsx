@@ -152,7 +152,7 @@ const ResultsDashboard: React.FC<ResultsDashboardProps> = ({ data }) => {
                 <div className="space-y-3">
                     <div>
                         <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider block">Estudante</span>
-                        <div className="font-semibold text-slate-800">{inputs.studentName || '-'}</div>
+                        <div className="text-slate-800">{inputs.studentName || '-'}</div>
                     </div>
                     <div>
                         <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider block">Orientador</span>
@@ -172,7 +172,7 @@ const ResultsDashboard: React.FC<ResultsDashboardProps> = ({ data }) => {
                       </div>
                        <div>
                         <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider block">ID Amostra</span>
-                        <div className="font-semibold text-slate-800">{inputs.sampleName}</div>
+                        <div className="text-slate-800">{inputs.sampleName}</div>
                       </div>
                     </div>
                     <div>
@@ -189,11 +189,11 @@ const ResultsDashboard: React.FC<ResultsDashboardProps> = ({ data }) => {
              <div className="mt-4 pt-3 border-t border-slate-200 grid grid-cols-2 gap-4">
                 <div>
                    <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider block">Biomassa</span>
-                   <div className="text-slate-800 font-medium">{inputs.biomassType}</div>
+                   <div className="text-slate-800">{inputs.biomassType}</div>
                 </div>
                  <div>
                    <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider block">Massa Biochar</span>
-                   <div className="text-slate-800 font-medium">{data.totalBiocharMass.toFixed(2)} toneladas</div>
+                   <div className="text-slate-800">{data.totalBiocharMass.toFixed(2)} toneladas</div>
                 </div>
              </div>
 
@@ -213,15 +213,15 @@ const ResultsDashboard: React.FC<ResultsDashboardProps> = ({ data }) => {
          <div className="grid grid-cols-3 gap-4 mb-3">
              <div className="bg-white border border-slate-200 p-3 rounded text-center shadow-sm print:shadow-none print:border-slate-300">
                 <div className="text-[10px] text-slate-500 uppercase tracking-wider">Carbono (%)</div>
-                <div className="text-lg font-bold text-slate-900">{inputs.carbonContent}%</div>
+                <div className="text-lg text-slate-900">{inputs.carbonContent}%</div>
              </div>
              <div className="bg-white border border-slate-200 p-3 rounded text-center shadow-sm print:shadow-none print:border-slate-300">
                 <div className="text-[10px] text-slate-500 uppercase tracking-wider">Razão H/C</div>
-                <div className="text-lg font-bold text-slate-900">{inputs.hcRatio}</div>
+                <div className="text-lg text-slate-900">{inputs.hcRatio}</div>
              </div>
              <div className="bg-white border border-slate-200 p-3 rounded text-center shadow-sm print:shadow-none print:border-slate-300">
                 <div className="text-[10px] text-slate-500 uppercase tracking-wider">Estabilidade</div>
-                <div className={`text-lg font-bold ${stabilityLevel === 'Alta' ? 'text-emerald-700' : 'text-slate-900'}`}>{stabilityLevel}</div>
+                <div className={`text-lg ${stabilityLevel === 'Alta' ? 'text-emerald-700' : 'text-slate-900'}`}>{stabilityLevel}</div>
              </div>
          </div>
          
@@ -244,25 +244,25 @@ const ResultsDashboard: React.FC<ResultsDashboardProps> = ({ data }) => {
              </thead>
              <tbody>
                 <tr>
-                   <td className="border border-slate-300 px-2 py-2 text-center font-medium bg-slate-50">100 Anos</td>
+                   <td className="border border-slate-300 px-2 py-2 text-center bg-slate-50">100 Anos</td>
                    <td className="border border-slate-300 px-2 py-2 text-center">{((mainP100?.fPerm || 0) * 100).toFixed(1)}%</td>
-                   <td className="border border-slate-300 px-2 py-2 text-center font-bold">{mainP100?.co2Sequestered?.toFixed(2) || "0.00"}</td>
+                   <td className="border border-slate-300 px-2 py-2 text-center">{mainP100?.co2Sequestered?.toFixed(2) || "0.00"}</td>
                    <td className="border border-slate-300 px-2 py-2 text-center">
                      {mainP100 && data.totalBiocharMass > 0 ? (mainP100.co2Sequestered / data.totalBiocharMass).toFixed(2) : '-'}
                    </td>
                 </tr>
                 <tr>
-                   <td className="border border-slate-300 px-2 py-2 text-center font-medium bg-slate-50">500 Anos</td>
+                   <td className="border border-slate-300 px-2 py-2 text-center bg-slate-50">500 Anos</td>
                    <td className="border border-slate-300 px-2 py-2 text-center">{((mainP500?.fPerm || 0) * 100).toFixed(1)}%</td>
-                   <td className="border border-slate-300 px-2 py-2 text-center font-bold">{mainP500?.co2Sequestered?.toFixed(2) || "0.00"}</td>
+                   <td className="border border-slate-300 px-2 py-2 text-center">{mainP500?.co2Sequestered?.toFixed(2) || "0.00"}</td>
                    <td className="border border-slate-300 px-2 py-2 text-center">
                      {mainP500 && data.totalBiocharMass > 0 ? (mainP500.co2Sequestered / data.totalBiocharMass).toFixed(2) : '-'}
                    </td>
                 </tr>
                 <tr>
-                   <td className="border border-slate-300 px-2 py-2 text-center font-medium bg-slate-50">1000 Anos</td>
+                   <td className="border border-slate-300 px-2 py-2 text-center bg-slate-50">1000 Anos</td>
                    <td className="border border-slate-300 px-2 py-2 text-center">{((mainP1000?.fPerm || 0) * 100).toFixed(1)}%</td>
-                   <td className="border border-slate-300 px-2 py-2 text-center font-bold">{mainP1000?.co2Sequestered?.toFixed(2) || "0.00"}</td>
+                   <td className="border border-slate-300 px-2 py-2 text-center">{mainP1000?.co2Sequestered?.toFixed(2) || "0.00"}</td>
                    <td className="border border-slate-300 px-2 py-2 text-center">
                      {mainP1000 && data.totalBiocharMass > 0 ? (mainP1000.co2Sequestered / data.totalBiocharMass).toFixed(2) : '-'}
                    </td>
